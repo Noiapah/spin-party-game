@@ -106,6 +106,9 @@ input[type="range"] { width: 100%; accent-color: var(--pink); }
 .choice.dare { background: linear-gradient(135deg, #ff536f, #ff8c3f); }
 
 .prompt-card { margin: auto 0; padding: 26px; border: 1px solid var(--ring); border-radius: 26px; background: var(--surface); box-shadow: 0 24px 80px rgba(0,0,0,.35); animation: card-in .35s ease-out; }
+.prompt-card.wildcard-card { border-color: rgba(255, 190, 75, .7); background: linear-gradient(145deg, rgba(91, 48, 65, .96), rgba(38, 26, 64, .96)); box-shadow: 0 20px 80px rgba(255, 158, 69, .18); }
+.prompt-card.wildcard-card .prompt-meta { color: #ffd166; }
+.prompt-card.wildcard-card #prompt-text::before { content: "✦ "; color: #ffd166; }
 @keyframes card-in { from { opacity: 0; transform: translateY(12px) scale(.98); } }
 .prompt-meta { display: flex; justify-content: space-between; margin-bottom: 26px; color: var(--orange); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .prompt-id { margin: -16px 0 18px; color: #81778f; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .7rem; }

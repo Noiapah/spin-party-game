@@ -138,7 +138,10 @@
   });
 
   function showPrompt(type) {
-    const prompt = weightedPrompt(type);
+    const wildcardTriggered = Math.random() < 0.05;
+    const prompt = wildcardTriggered
+      ? (weightedPrompt("wildcard") || weightedPrompt(type))
+      : weightedPrompt(type);
     if (!prompt) {
       $("#prompt-type").textContent = "All done";
       $("#prompt-category").textContent = type;
@@ -153,6 +156,7 @@
       $("#prompt-text").textContent = prompt.text;
       promptCountEl.textContent = `${state.usedIds.size} asked`;
     }
+    promptCard.classList.toggle("wildcard-card", prompt?.type === "wildcard");
     $("#spin-stage").hidden = true;
     promptCard.hidden = false;
     $("#next-round").focus();
