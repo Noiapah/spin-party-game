@@ -106,6 +106,17 @@
     return weighted.at(-1).prompt;
   }
 
+  function everyoneDrinksPrompt(cardNumber) {
+    return {
+      id: `m${String(cardNumber).padStart(3, "0")}`,
+      type: "everyone drinks",
+      category: "milestone",
+      intensity: 1,
+      minPlayers: 2,
+      text: "Everyone drinks! Take one agreed-upon sip/skip together."
+    };
+  }
+
   bottleButton.addEventListener("click", () => {
     if (state.spinning) return;
     state.spinning = true;
@@ -138,10 +149,14 @@
   });
 
   function showPrompt(type) {
-    const wildcardTriggered = Math.random() < 0.05;
-    const prompt = wildcardTriggered
-      ? (weightedPrompt("wildcard") || weightedPrompt(type))
-      : weightedPrompt(type);
+    const cardNumber = state.usedIds.size + 1;
+    const isEveryoneDrinksCard = cardNumber % 10 === 0;
+    const wildcardTriggered = !isEveryoneDrinksCard && Math.random() < 0.05;
+    const prompt = isEveryoneDrinksCard
+      ? everyoneDrinksPrompt(cardNumber)
+      : wildcardTriggered
+        ? (weightedPrompt("wildcard") || weightedPrompt(type))
+        : weightedPrompt(type);
     if (!prompt) {
       $("#prompt-type").textContent = "All done";
       $("#prompt-category").textContent = type;
@@ -157,6 +172,7 @@
       promptCountEl.textContent = `${state.usedIds.size} asked`;
     }
     promptCard.classList.toggle("wildcard-card", prompt?.type === "wildcard");
+    promptCard.classList.toggle("everyone-drinks-card", prompt?.type === "everyone drinks");
     $("#spin-stage").hidden = true;
     promptCard.hidden = false;
     $("#next-round").focus();

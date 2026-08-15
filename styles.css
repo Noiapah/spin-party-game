@@ -109,6 +109,9 @@ input[type="range"] { width: 100%; accent-color: var(--pink); }
 .prompt-card.wildcard-card { border-color: rgba(255, 190, 75, .7); background: linear-gradient(145deg, rgba(91, 48, 65, .96), rgba(38, 26, 64, .96)); box-shadow: 0 20px 80px rgba(255, 158, 69, .18); }
 .prompt-card.wildcard-card .prompt-meta { color: #ffd166; }
 .prompt-card.wildcard-card #prompt-text::before { content: "✦ "; color: #ffd166; }
+.prompt-card.everyone-drinks-card { border-color: rgba(255, 79, 154, .8); background: linear-gradient(145deg, rgba(112, 35, 86, .97), rgba(43, 24, 74, .97)); box-shadow: 0 20px 90px rgba(255, 79, 154, .24); }
+.prompt-card.everyone-drinks-card .prompt-meta { color: #ff8ebf; }
+.prompt-card.everyone-drinks-card #prompt-text::before { content: "🥂 "; }
 @keyframes card-in { from { opacity: 0; transform: translateY(12px) scale(.98); } }
 .prompt-meta { display: flex; justify-content: space-between; margin-bottom: 26px; color: var(--orange); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .prompt-id { margin: -16px 0 18px; color: #81778f; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .7rem; }
