@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#120d24" />
+    <meta name="description" content="A phone-first spin-the-bottle truth or dare party game." />
+    <title>Spin & Spill</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="questions.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="setup-screen" class="screen setup-screen" aria-labelledby="setup-title">
+        <div class="brand-mark" aria-hidden="true">✦</div>
+        <p class="eyebrow">A truth, dare, or drink game</p>
+        <h1 id="setup-title">Spin <span>&</span> Spill</h1>
+        <p class="intro">Pass the phone around the circle. Spin, pick truth or dare, and answer—or take your agreed-upon skip.</p>
+
+        <form id="setup-form" class="setup-card">
+          <label for="duration">Game length <output id="duration-output" for="duration">45 min</output></label>
+          <input id="duration" name="duration" type="range" min="15" max="120" step="5" value="45" />
+
+          <label for="players">Number of players</label>
+          <div class="stepper">
+            <button type="button" id="players-down" aria-label="Remove a player">−</button>
+            <input id="players" name="players" type="number" min="2" max="20" value="6" inputmode="numeric" />
+            <button type="button" id="players-up" aria-label="Add a player">+</button>
+          </div>
+
+          <label class="consent-row">
+            <input id="consent" type="checkbox" required />
+            <span>Everyone can skip anything. No pressure, no explanations.</span>
+          </label>
+
+          <button class="primary-button" type="submit">Start the party</button>
+        </form>
+        <p class="fine-print">For adults of legal drinking age. “Drink” can always mean water or any non-alcoholic alternative.</p>
+      </section>
+
+      <section id="game-screen" class="screen game-screen" hidden aria-labelledby="game-title">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Spin & Spill</p>
+            <h2 id="game-title">Whose turn?</h2>
+          </div>
+          <div class="game-stats">
+            <span id="timer">45:00</span>
+            <span id="prompt-count">0 asked</span>
+          </div>
+        </header>
+
+        <section id="spin-stage" class="spin-stage" aria-live="polite">
+          <div class="bottle-zone">
+            <div class="direction-ring" aria-hidden="true"></div>
+            <button id="bottle-button" class="bottle-button" type="button" aria-label="Spin the bottle">
+              <span class="bottle" aria-hidden="true">
+                <span class="bottle-neck"></span>
+                <span class="bottle-body"><span>SPIN</span></span>
+              </span>
+            </button>
+          </div>
+          <p id="spin-instruction" class="stage-copy">Tap the bottle to spin</p>
+          <div id="choice-panel" class="choice-panel" hidden>
+            <p>The bottle has chosen. What will it be?</p>
+            <div>
+              <button class="choice truth" type="button" data-type="truth">Truth</button>
+              <button class="choice dare" type="button" data-type="dare">Dare</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="prompt-card" class="prompt-card" hidden aria-live="assertive">
+          <div class="prompt-meta">
+            <span id="prompt-type">Truth</span>
+            <span id="prompt-category">Social</span>
+          </div>
+          <p id="prompt-id" class="prompt-id">debug: —</p>
+          <p id="prompt-text"></p>
+          <p class="skip-copy">Do it, tell the truth, or take your agreed-upon sip/skip.</p>
+          <button id="next-round" class="primary-button" type="button">Next round</button>
+        </section>
+
+        <button id="end-game" class="text-button" type="button">End game</button>
+      </section>
+
+      <dialog id="end-dialog">
+        <p class="eyebrow">That’s a wrap</p>
+        <h2>Good game!</h2>
+        <p id="end-summary"></p>
+        <div class="dialog-actions">
+          <button id="keep-playing" class="secondary-button" type="button">Keep playing</button>
+          <button id="new-game" class="primary-button" type="button">New game</button>
+        </div>
+      </dialog>
+    </main>
+  </body>
+</html>
