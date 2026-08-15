@@ -25,6 +25,6 @@ No build command or framework is required.
 
 Every prompt in `questions.js` has a unique ID, type, category, intensity from 1–100, minimum player count, and text. Used IDs are held in memory for the current game, so a prompt cannot repeat.
 
-The desired intensity changes continuously with elapsed game time using a smoothstep curve. Eligible prompts receive more weight when their intensity is close to that target. A small exploration weight keeps the order surprising, and prompts from recently seen categories get a temporary penalty. This is weighted random sampling, not discrete rounds or difficulty tiers.
+The desired intensity changes continuously with elapsed game time using a smoothstep curve, building toward the maximum intensity selected during setup. Eligible prompts receive more weight when their intensity is close to that target. A small exploration weight keeps the order surprising, and prompts from recently seen categories get a temporary penalty. This is weighted random sampling, not discrete rounds or difficulty tiers.
 
 To add content, copy an entry in `questions.js`, give it a new unique ID, and adjust its metadata. Keep dares safe, legal, consensual, and possible without leaving the game.

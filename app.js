@@ -7,6 +7,8 @@
   const setupForm = $("#setup-form");
   const durationInput = $("#duration");
   const durationOutput = $("#duration-output");
+  const intensityInput = $("#intensity");
+  const intensityOutput = $("#intensity-output");
   const playersInput = $("#players");
   const bottleButton = $("#bottle-button");
   const bottle = $(".bottle");
@@ -20,6 +22,7 @@
   const state = {
     players: 2,
     durationMinutes: 45,
+    maxIntensity: 80,
     startedAt: 0,
     extraTimeMs: 0,
     usedIds: new Set(),
@@ -38,6 +41,9 @@
   durationInput.addEventListener("input", () => {
     durationOutput.value = `${durationInput.value} min`;
   });
+  intensityInput.addEventListener("input", () => {
+    intensityOutput.value = `${intensityInput.value} / 100`;
+  });
   $("#players-down").addEventListener("click", () => setPlayers(Number(playersInput.value) - 1));
   $("#players-up").addEventListener("click", () => setPlayers(Number(playersInput.value) + 1));
   playersInput.addEventListener("change", () => setPlayers(playersInput.value));
@@ -46,6 +52,7 @@
     event.preventDefault();
     state.players = clamp(Number(playersInput.value), 2, 20);
     state.durationMinutes = Number(durationInput.value);
+    state.maxIntensity = Number(intensityInput.value);
     state.startedAt = Date.now();
     state.extraTimeMs = 0;
     state.usedIds.clear();
@@ -66,13 +73,15 @@
   function targetIntensity() {
     const t = elapsedRatio();
     const smooth = t * t * (3 - 2 * t);
-    return 10 + 82 * smooth;
+    const startingIntensity = Math.min(10, state.maxIntensity * 0.35);
+    return startingIntensity + (state.maxIntensity - startingIntensity) * smooth;
   }
 
   function weightedPrompt(type) {
     let eligible = window.PROMPTS.filter((prompt) =>
       prompt.type === type &&
       prompt.minPlayers <= state.players &&
+      prompt.intensity <= state.maxIntensity &&
       !state.usedIds.has(prompt.id)
     );
 
