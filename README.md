@@ -1,6 +1,6 @@
 # Spin & Spill
 
-A dependency-free, phone-first truth-or-dare game with 373 truth, dare, and wildcard prompts, designed for static hosting on GitHub Pages.
+A dependency-free, phone-first truth-or-dare game with truth, dare, and wildcard prompts, designed for static hosting on GitHub Pages.
 
 ## Run locally
 
@@ -23,8 +23,8 @@ No build command or framework is required.
 
 ## How prompt selection works
 
-Every prompt in `questions.js` has a unique ID, type, category, intensity from 1–100, minimum player count, and text. Used IDs are held in memory for the current game, so a prompt cannot repeat. Every Truth or Dare selection has a 5% chance to become an eligible wildcard instead. Every tenth displayed card overrides the normal draw with an “Everyone drinks” milestone card.
+Every prompt in `questions.js` has a unique ID, type, category, intensity from 1–6, minimum player count, and text. Used IDs are held in memory for the current game, so a prompt cannot repeat. Every Truth or Dare selection has a 5% chance to become an eligible wildcard instead. Every tenth displayed card overrides the normal draw with an “Everyone drinks” milestone card.
 
-The desired intensity changes continuously with elapsed game time using a smoothstep curve, building toward the maximum intensity selected during setup. Eligible prompts receive more weight when their intensity is close to that target. A small exploration weight keeps the order surprising, and prompts from recently seen categories get a temporary penalty. This is weighted random sampling, not discrete rounds or difficulty tiers.
+Prompt scores use six content bands: Easy, Personal, Spicy, Adult, Chaos, and Finale. The desired intensity still changes continuously with elapsed game time using a smoothstep curve, building toward the maximum selected during setup. Gaussian proximity weighting blends neighboring bands, while a continuous early-game guard keeps levels 5–6 out of the opening portion. Recently seen categories receive a temporary variety penalty. This is weighted random sampling, not discrete rounds.
 
 To add content, copy an entry in `questions.js`, give it a new unique ID, and adjust its metadata. Keep dares safe, legal, consensual, and possible without leaving the game.

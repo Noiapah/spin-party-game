@@ -22,7 +22,7 @@
   const state = {
     players: 2,
     durationMinutes: 45,
-    maxIntensity: 80,
+    maxIntensity: 5,
     startedAt: 0,
     extraTimeMs: 0,
     usedIds: new Set(),
@@ -41,8 +41,17 @@
   durationInput.addEventListener("input", () => {
     durationOutput.value = `${durationInput.value} min`;
   });
+  const intensityLabels = {
+    1: "Easy",
+    2: "Personal",
+    3: "Spicy",
+    4: "Adult",
+    5: "Chaos",
+    6: "Finale"
+  };
+
   intensityInput.addEventListener("input", () => {
-    intensityOutput.value = `${intensityInput.value} / 100`;
+    intensityOutput.value = `${intensityInput.value} · ${intensityLabels[intensityInput.value]}`;
   });
   $("#players-down").addEventListener("click", () => setPlayers(Number(playersInput.value) - 1));
   $("#players-up").addEventListener("click", () => setPlayers(Number(playersInput.value) + 1));
@@ -69,12 +78,11 @@
     return clamp((Date.now() - state.startedAt) / durationMs, 0, 1);
   }
 
-  // A smoothstep curve has no discrete levels and eases into the bolder prompts.
+  // The target moves continuously between the six integer content bands.
   function targetIntensity() {
     const t = elapsedRatio();
     const smooth = t * t * (3 - 2 * t);
-    const startingIntensity = Math.min(10, state.maxIntensity * 0.35);
-    return startingIntensity + (state.maxIntensity - startingIntensity) * smooth;
+    return 1 + (state.maxIntensity - 1) * smooth;
   }
 
   function weightedPrompt(type) {
@@ -87,14 +95,20 @@
 
     if (!eligible.length) return null;
 
+    const progress = elapsedRatio();
     const target = targetIntensity();
-    const spread = 16;
+    const spread = 0.72;
     const weighted = eligible.map((prompt) => {
       const distance = prompt.intensity - target;
       const proximity = Math.exp(-(distance * distance) / (2 * spread * spread));
       const variety = state.recentCategories.includes(prompt.category) ? 0.58 : 1;
-      const exploration = 0.045;
-      return { prompt, weight: (proximity + exploration) * variety };
+      // Higher bands fade in continuously. Levels 5–6 are effectively absent early.
+      const lateBand = Math.max(0, prompt.intensity - 2);
+      const earlyGuard = lateBand === 0
+        ? 1
+        : Math.pow(Math.max(progress, 0.001), lateBand * 1.15);
+      const exploration = 0.008 * Math.pow(Math.max(progress, 0.05), Math.max(0, prompt.intensity - 1));
+      return { prompt, weight: (proximity + exploration) * earlyGuard * variety };
     });
 
     const total = weighted.reduce((sum, item) => sum + item.weight, 0);
