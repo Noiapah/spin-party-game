@@ -335,7 +335,7 @@ window.PROMPTS = [
   {id:"d162",type:"dare",category:"performance",intensity:79,minPlayers:2,text:"Act out your ideal movie-date montage."},
   {id:"d163",type:"dare",category:"group",intensity:83,minPlayers:4,text:"Let the group choose three traits for your perfect fictional match."},
   {id:"d164",type:"dare",category:"flirty",intensity:87,minPlayers:3,text:"Offer a consenting player your most theatrical invitation to dance."},
-  {id:"d165",type:"dare",category:"confession",intensity:91,minPlayers:2,text:"Describe the last time someone made you blush."},
+  {id:"d165",type:"dare",category:"confession",intensity:30,minPlayers:2,text:"Describe the last time someone made you blush."},
   {id:"d166",type:"truth",category:"performance",intensity:93,minPlayers:2,text:"Whats the sluttiest thing you've done to impress someone."},
   {id:"d167",type:"dare",category:"flirty",intensity:97,minPlayers:3,text:"Create a daring but respectful pickup line for a consenting player."},
   {id:"d168",type:"dare",category:"group",intensity:99,minPlayers:4,text:"Everyone in the group need to swap one unit of clothing. Socks, hair-ties and acessories not counted."},
