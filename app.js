@@ -86,30 +86,38 @@
   }
 
   function weightedPrompt(type) {
-    let eligible = window.PROMPTS.filter((prompt) =>
+    const eligible = window.PROMPTS.filter((prompt) =>
       prompt.type === type &&
       prompt.minPlayers <= state.players &&
-      prompt.intensity <= state.maxIntensity &&
+      (type === "wildcard" || prompt.intensity <= state.maxIntensity) &&
       !state.usedIds.has(prompt.id)
     );
 
     if (!eligible.length) return null;
 
-    const progress = elapsedRatio();
-    const target = targetIntensity();
-    const spread = 0.72;
-    const weighted = eligible.map((prompt) => {
-      const distance = prompt.intensity - target;
-      const proximity = Math.exp(-(distance * distance) / (2 * spread * spread));
-      const variety = state.recentCategories.includes(prompt.category) ? 0.58 : 1;
-      // Higher bands fade in continuously. Levels 5–6 are effectively absent early.
-      const lateBand = Math.max(0, prompt.intensity - 2);
-      const earlyGuard = lateBand === 0
-        ? 1
-        : Math.pow(Math.max(progress, 0.001), lateBand * 1.15);
-      const exploration = 0.008 * Math.pow(Math.max(progress, 0.05), Math.max(0, prompt.intensity - 1));
-      return { prompt, weight: (proximity + exploration) * earlyGuard * variety };
-    });
+    let weighted;
+    if (type === "wildcard") {
+      weighted = eligible.map((prompt) => ({
+        prompt,
+        weight: state.recentCategories.includes(prompt.category) ? 0.58 : 1
+      }));
+    } else {
+      const progress = elapsedRatio();
+      const target = targetIntensity();
+      const spread = 0.72;
+      weighted = eligible.map((prompt) => {
+        const variety = state.recentCategories.includes(prompt.category) ? 0.58 : 1;
+        const distance = prompt.intensity - target;
+        const proximity = Math.exp(-(distance * distance) / (2 * spread * spread));
+        // Higher bands fade in continuously. Levels 5–6 are effectively absent early.
+        const lateBand = Math.max(0, prompt.intensity - 2);
+        const earlyGuard = lateBand === 0
+          ? 1
+          : Math.pow(Math.max(progress, 0.001), lateBand * 1.15);
+        const exploration = 0.008 * Math.pow(Math.max(progress, 0.05), Math.max(0, prompt.intensity - 1));
+        return { prompt, weight: (proximity + exploration) * earlyGuard * variety };
+      });
+    }
 
     const total = weighted.reduce((sum, item) => sum + item.weight, 0);
     let roll = Math.random() * total;
@@ -125,9 +133,8 @@
       id: `m${String(cardNumber).padStart(3, "0")}`,
       type: "everyone drinks",
       category: "milestone",
-      intensity: 1,
       minPlayers: 2,
-      text: "Everyone drinks! Take one agreed-upon sip/skip together."
+      text: "Everyone drinks!"
     };
   }
 

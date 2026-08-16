@@ -1,5 +1,6 @@
-// Data-only prompt bank. Intensity bands:
+// Data-only prompt bank. Truth/dare intensity bands:
 // 1 Easy, 2 Personal, 3 Spicy, 4 Adult, 5 Chaos, 6 Finale.
+// Wildcards are independent of intensity.
 window.PROMPTS = [
   {id:"t001",type:"truth",text:"What useless talent are you secretly proud of?",category:"icebreaker",intensity:1,minPlayers:2},
   {id:"t002",type:"truth",text:"Which song can you sing without seeing the lyrics?",category:"icebreaker",intensity:1,minPlayers:2},
@@ -109,33 +110,33 @@ window.PROMPTS = [
   {id:"d047",type:"dare",text:"Describe your wildest dream date without naming a place or person.",category:"adult",intensity:6,minPlayers:2},
   {id:"d048",type:"dare",text:"Let the room design your chaotic alter ego, including name and dating style.",category:"group",intensity:6,minPlayers:4},
 
-  {id:"w001",type:"wildcard",text:"Shield: Ignore one future sip/skip assignment.",category:"power",intensity:1,minPlayers:2},
-  {id:"w002",type:"wildcard",text:"Director: Choose who spins the bottle next.",category:"power",intensity:1,minPlayers:3},
-  {id:"w003",type:"wildcard",text:"New rule: Nobody may point with a finger until your next turn.",category:"rule",intensity:1,minPlayers:3},
-  {id:"w004",type:"wildcard",text:"Team toast: Choose one player to make a toast with you.",category:"group",intensity:1,minPlayers:3},
+  {id:"w001",type:"wildcard",text:"Shield: Ignore one future sip/skip assignment.",category:"power",minPlayers:2},
+  {id:"w002",type:"wildcard",text:"Director: Choose who spins the bottle next.",category:"power",minPlayers:3},
+  {id:"w003",type:"wildcard",text:"New rule: Nobody may point with a finger until your next turn.",category:"rule",minPlayers:3},
+  {id:"w004",type:"wildcard",text:"Team toast: Choose one player to make a toast with you.",category:"group",minPlayers:3},
 
-  {id:"w005",type:"wildcard",text:"Choice: Decide whether the next selected player gets Truth or Dare.",category:"power",intensity:2,minPlayers:3},
-  {id:"w006",type:"wildcard",text:"New rule: Choose a common word nobody may say for one round.",category:"rule",intensity:2,minPlayers:3},
-  {id:"w007",type:"wildcard",text:"Alliance: Pick a teammate who may help with your next dare.",category:"power",intensity:2,minPlayers:3},
-  {id:"w008",type:"wildcard",text:"Categories: Pick a topic and go around naming examples. First person stuck takes one sip/skip.",category:"group",intensity:2,minPlayers:4},
+  {id:"w005",type:"wildcard",text:"Choice: Decide whether the next selected player gets Truth or Dare.",category:"power",minPlayers:3},
+  {id:"w006",type:"wildcard",text:"New rule: Choose a common word nobody may say for one round.",category:"rule",minPlayers:3},
+  {id:"w007",type:"wildcard",text:"Alliance: Pick a teammate who may help with your next dare.",category:"power",minPlayers:3},
+  {id:"w008",type:"wildcard",text:"Categories: Pick a topic and go around naming examples. First person stuck takes one sip/skip.",category:"group",minPlayers:4},
 
-  {id:"w009",type:"wildcard",text:"One for you: Assign one sip/skip to any player.",category:"power",intensity:3,minPlayers:3},
-  {id:"w010",type:"wildcard",text:"New rule: Two chosen players must speak in questions until your next turn.",category:"rule",intensity:3,minPlayers:4},
-  {id:"w011",type:"wildcard",text:"Reverse: The next sip/skip assigned to you returns to its sender.",category:"power",intensity:3,minPlayers:3},
-  {id:"w012",type:"wildcard",text:"Vote for the best storyteller. The winner assigns one sip/skip.",category:"group",intensity:3,minPlayers:4},
+  {id:"w009",type:"wildcard",text:"One for you: Assign one sip/skip to any player.",category:"power",minPlayers:3},
+  {id:"w010",type:"wildcard",text:"New rule: Two chosen players must speak in questions until your next turn.",category:"rule",minPlayers:4},
+  {id:"w011",type:"wildcard",text:"Reverse: The next sip/skip assigned to you returns to its sender.",category:"power",minPlayers:3},
+  {id:"w012",type:"wildcard",text:"Vote for the best storyteller. The winner assigns one sip/skip.",category:"group",minPlayers:4},
 
-  {id:"w013",type:"wildcard",text:"Double shield: Protect yourself and one other player from one sip/skip each.",category:"power",intensity:4,minPlayers:3},
-  {id:"w014",type:"wildcard",text:"New rule: Two players must call each other Your Majesty for one round.",category:"rule",intensity:4,minPlayers:4},
-  {id:"w015",type:"wildcard",text:"Split decision: Give one sip/skip each to two different players.",category:"power",intensity:4,minPlayers:4},
-  {id:"w016",type:"wildcard",text:"Hot seat: Ask a willing player one bold truth. They may answer or take one sip/skip.",category:"group",intensity:4,minPlayers:3},
+  {id:"w013",type:"wildcard",text:"Double shield: Protect yourself and one other player from one sip/skip each.",category:"power",minPlayers:3},
+  {id:"w014",type:"wildcard",text:"New rule: Two players must call each other Your Majesty for one round.",category:"rule",minPlayers:4},
+  {id:"w015",type:"wildcard",text:"Split decision: Give one sip/skip each to two different players.",category:"power",minPlayers:4},
+  {id:"w016",type:"wildcard",text:"Hot seat: Ask a willing player one bold truth. They may answer or take one sip/skip.",category:"group",minPlayers:3},
 
-  {id:"w017",type:"wildcard",text:"Dare dealer: Choose someone who must pick Dare next turn or use their sip/skip.",category:"power",intensity:5,minPlayers:3},
-  {id:"w018",type:"wildcard",text:"New rule: Two chosen players must mirror each other for one round.",category:"rule",intensity:5,minPlayers:4},
-  {id:"w019",type:"wildcard",text:"Chaos gift: Hand out two total sips/skips however you like.",category:"power",intensity:5,minPlayers:4},
-  {id:"w020",type:"wildcard",text:"Council vote: Nominate the boldest player. They invent a respectful rule for one round.",category:"group",intensity:5,minPlayers:4},
+  {id:"w017",type:"wildcard",text:"Dare dealer: Choose someone who must pick Dare next turn or use their sip/skip.",category:"power",minPlayers:3},
+  {id:"w018",type:"wildcard",text:"New rule: Two chosen players must mirror each other for one round.",category:"rule",minPlayers:4},
+  {id:"w019",type:"wildcard",text:"Chaos gift: Hand out two total sips/skips however you like.",category:"power",minPlayers:4},
+  {id:"w020",type:"wildcard",text:"Council vote: Nominate the boldest player. They invent a respectful rule for one round.",category:"group",minPlayers:4},
 
-  {id:"w021",type:"wildcard",text:"Royal decree: Create one respectful rule for everyone until your next turn.",category:"rule",intensity:6,minPlayers:4},
-  {id:"w022",type:"wildcard",text:"Wild authority: Hand out three total sips/skips, at most one per player.",category:"power",intensity:6,minPlayers:4},
-  {id:"w023",type:"wildcard",text:"Finale alliance: Pick two players to jointly choose the next person and prompt type.",category:"power",intensity:6,minPlayers:4},
-  {id:"w024",type:"wildcard",text:"Chaos court: The group asks you one provocative question. Answer or assign two total sips/skips.",category:"group",intensity:6,minPlayers:4}
+  {id:"w021",type:"wildcard",text:"Royal decree: Create one respectful rule for everyone until your next turn.",category:"rule",minPlayers:4},
+  {id:"w022",type:"wildcard",text:"Wild authority: Hand out three total sips/skips, at most one per player.",category:"power",minPlayers:4},
+  {id:"w023",type:"wildcard",text:"Finale alliance: Pick two players to jointly choose the next person and prompt type.",category:"power",minPlayers:4},
+  {id:"w024",type:"wildcard",text:"Chaos court: The group asks you one provocative question. Answer or assign two total sips/skips.",category:"group",minPlayers:4}
 ];
