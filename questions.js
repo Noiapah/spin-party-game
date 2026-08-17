@@ -27,7 +27,7 @@ window.PROMPTS = [
   {id:"t021",type:"truth",text:"What part of your personality do people misunderstand?",category:"revealing",intensity:3,minPlayers:2},
   {id:"t022",type:"truth",text:"Have you ever pretended not to see a message?",category:"confession",intensity:3,minPlayers:2},
   {id:"t023",type:"truth",text:"What makes someone instantly more attractive to you?",category:"dating",intensity:3,minPlayers:2},
-  {id:"t024",type:"truth",text:"What was your honest first impression of the person opposite you?",category:"group",intensity:3,minPlayers:3},
+  {id:"t024",type:"truth",text:"What's the strongest drug you habe ever tried?",category:"group",intensity:4,minPlayers:2},
 
   {id:"t025",type:"truth",text:"Have you ever caught feelings for someone you should not have?",category:"adult",intensity:4,minPlayers:2},
   {id:"t026",type:"truth",text:"What is your biggest nonphysical turn-on?",category:"adult",intensity:4,minPlayers:2},
@@ -110,15 +110,15 @@ window.PROMPTS = [
   {id:"d047",type:"dare",text:"Describe your wildest dream date without naming a place or person.",category:"adult",intensity:6,minPlayers:2},
   {id:"d048",type:"dare",text:"Let the room design your chaotic alter ego, including name and dating style.",category:"group",intensity:6,minPlayers:4},
 
-  {id:"w001",type:"wildcard",text:"Shield: Ignore one future sip/skip assignment.",category:"power",minPlayers:2},
-  {id:"w002",type:"wildcard",text:"Director: Choose who spins the bottle next.",category:"power",minPlayers:3},
-  {id:"w003",type:"wildcard",text:"New rule: Nobody may point with a finger until your next turn.",category:"rule",minPlayers:3},
-  {id:"w004",type:"wildcard",text:"Team toast: Choose one player to make a toast with you.",category:"group",minPlayers:3},
+  {id:"w001",type:"wildcard",text:"You can skip one truth or dare, or pass it on to another player at any time",category:"power",minPlayers:2},
+  {id:"w002",type:"wildcard",text:"Choose who has to do the next truth or dare.",category:"power",minPlayers:3},
+  {id:"w003",type:"wildcard",text:"Finish your drink.",category:"rule",minPlayers:3},
+  {id:"w004",type:"wildcard",text:"Select two players to become drinking partners.",category:"group",minPlayers:3},
 
-  {id:"w005",type:"wildcard",text:"Choice: Decide whether the next selected player gets Truth or Dare.",category:"power",minPlayers:3},
-  {id:"w006",type:"wildcard",text:"New rule: Choose a common word nobody may say for one round.",category:"rule",minPlayers:3},
-  {id:"w007",type:"wildcard",text:"Alliance: Pick a teammate who may help with your next dare.",category:"power",minPlayers:3},
-  {id:"w008",type:"wildcard",text:"Categories: Pick a topic and go around naming examples. First person stuck takes one sip/skip.",category:"group",minPlayers:4},
+  {id:"w005",type:"wildcard",text:"Decide whether the next selected player gets a Truth or Dare.",category:"power",minPlayers:3},
+  {id:"w006",type:"wildcard",text:"Every player has to drink the amount of times the first letter in their name appears in their full legal name.",category:"rule",minPlayers:2},
+  {id:"w007",type:"wildcard",text:"Have one sip pr week since the last time you got laid.",category:"power",minPlayers:3},
+  {id:"w008",type:"wildcard",text:".",category:"group",minPlayers:4},
 
   {id:"w009",type:"wildcard",text:"One for you: Assign one sip/skip to any player.",category:"power",minPlayers:3},
   {id:"w010",type:"wildcard",text:"New rule: Two chosen players must speak in questions until your next turn.",category:"rule",minPlayers:4},
