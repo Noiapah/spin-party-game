@@ -52,7 +52,6 @@ h1 span { color: var(--pink); }
 label { font-weight: 720; }
 label output { float: right; color: var(--pink); }
 input[type="range"] { width: 100%; accent-color: var(--pink); }
-.field-help { margin: -10px 0 2px; color: #8e849e; font-size: .75rem; line-height: 1.4; }
 .stepper { display: grid; grid-template-columns: 52px 1fr 52px; gap: 10px; }
 .stepper button, .stepper input {
   min-height: 52px;
