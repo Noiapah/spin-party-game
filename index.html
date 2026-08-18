@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#120d24" />
+    <meta name="theme-color" content="#f3f2ed" />
     <meta name="description" content="A phone-first spin-the-bottle truth or dare party game." />
     <title>Spin & Spill</title>
     <link rel="stylesheet" href="styles.css" />
@@ -55,10 +55,21 @@
           <div class="bottle-zone">
             <div class="direction-ring" aria-hidden="true"></div>
             <button id="bottle-button" class="bottle-button" type="button" aria-label="Spin the bottle">
-              <span class="bottle" aria-hidden="true">
-                <span class="bottle-neck"></span>
-                <span class="bottle-body"><span>SPIN</span></span>
-              </span>
+              <svg class="bottle" viewBox="0 0 120 260" aria-hidden="true">
+                <defs>
+                  <clipPath id="bottle-shape">
+                    <path d="M41 18h38v35c0 7 4 13 11 18 12 9 18 22 18 37v120c0 17-13 29-30 29H42c-17 0-30-12-30-29V108c0-15 6-28 18-37 7-5 11-11 11-18V18Z" />
+                  </clipPath>
+                </defs>
+                <path class="bottle-glass" d="M41 18h38v35c0 7 4 13 11 18 12 9 18 22 18 37v120c0 17-13 29-30 29H42c-17 0-30-12-30-29V108c0-15 6-28 18-37 7-5 11-11 11-18V18Z" />
+                <path class="bottle-liquid" d="M8 116h104v145H8z" clip-path="url(#bottle-shape)" />
+                <path class="bottle-outline" d="M41 18h38v35c0 7 4 13 11 18 12 9 18 22 18 37v120c0 17-13 29-30 29H42c-17 0-30-12-30-29V108c0-15 6-28 18-37 7-5 11-11 11-18V18Z" />
+                <rect class="bottle-cap" x="38" y="4" width="44" height="20" rx="5" />
+                <path class="bottle-highlight" d="M31 91c-5 7-7 15-7 25v76" />
+                <rect class="bottle-label" x="27" y="145" width="66" height="55" rx="8" />
+                <text class="bottle-label-small" x="60" y="164" text-anchor="middle">SPIN</text>
+                <text class="bottle-label-mark" x="60" y="188" text-anchor="middle">S&S</text>
+              </svg>
             </button>
           </div>
           <p id="spin-instruction" class="stage-copy">Tap the bottle to spin</p>

@@ -128,7 +128,6 @@
     choicePanel.hidden = true;
     spinInstruction.hidden = false;
     spinInstruction.textContent = "Spinning…";
-    bottleButton.classList.add("spinning");
 
     const turns = 4 + Math.floor(Math.random() * 4);
     const direction = Math.random() * 360;
@@ -137,7 +136,6 @@
     bottle.style.transform = `rotate(${state.rotation}deg)`;
 
     window.setTimeout(() => {
-      bottleButton.classList.remove("spinning");
       spinInstruction.textContent = "The bottle has chosen…";
       window.setTimeout(() => {
         state.spinning = false;
