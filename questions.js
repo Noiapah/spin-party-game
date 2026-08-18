@@ -3,14 +3,14 @@
 // Wildcards are independent of intensity.
 window.PROMPTS = [
   {id:"t001",type:"truth",text:"What useless talent are you secretly proud of?",category:"icebreaker",intensity:1,minPlayers:2},
-  {id:"t002",type:"truth",text:"Which song can you sing without seeing the lyrics?",category:"icebreaker",intensity:1,minPlayers:2},
+  {id:"t002",type:"truth",text:"Who was the last person you stalked on social media?",category:"icebreaker",intensity:1,minPlayers:2},
   {id:"t003",type:"truth",text:"What food combination do you love that others find strange?",category:"funny",intensity:1,minPlayers:2},
   {id:"t004",type:"truth",text:"What fictional world would you visit for one day?",category:"imagination",intensity:1,minPlayers:2},
-  {id:"t005",type:"truth",text:"Who here would be the best game-show host?",category:"group",intensity:1,minPlayers:3},
+  {id:"t005",type:"truth",text:"What your guilty-pleasure show/movie?",category:"icebreaker",intensity:1,minPlayers:2},
   {id:"t006",type:"truth",text:"What is your most-used emoji?",category:"icebreaker",intensity:1,minPlayers:2},
   {id:"t007",type:"truth",text:"What harmless lie do you tell surprisingly often?",category:"personal",intensity:1,minPlayers:2},
   {id:"t008",type:"truth",text:"Who here would survive longest on a deserted island?",category:"group",intensity:1,minPlayers:4},
-
+  
   {id:"t009",type:"truth",text:"What habit are you currently trying to break?",category:"personal",intensity:2,minPlayers:2},
   {id:"t010",type:"truth",text:"Who here gave the worst first impression?",category:"group",intensity:2,minPlayers:3},
   {id:"t011",type:"truth",text:"Who here gives the best first impression?",category:"group",intensity:2,minPlayers:3},
@@ -22,12 +22,12 @@ window.PROMPTS = [
 
   {id:"t017",type:"truth",text:"Whats the most embarassing thing you've ever said while drunk?",category:"dating",intensity:3,minPlayers:2},
   {id:"t018",type:"truth",text:"Have you ever rehearsed a message before sending it?",category:"confession",intensity:3,minPlayers:2},
-  {id:"t019",type:"truth",text:"Who here would make the best wingperson?",category:"group",intensity:3,minPlayers:3},
+  {id:"t019",type:"truth",text:"Whats an unexpected turn-on?",category:"revealing",intensity:3,minPlayers:2},
   {id:"t020",type:"truth",text:"What is the boldest move you have made on a crush?",category:"dating",intensity:3,minPlayers:2},
   {id:"t021",type:"truth",text:"What part of your personality do people misunderstand?",category:"revealing",intensity:3,minPlayers:2},
-  {id:"t022",type:"truth",text:"Have you ever pretended not to see a message?",category:"confession",intensity:3,minPlayers:2},
+  {id:"t022",type:"truth",text:"Who was the last person you flaked on and why?",category:"confession",intensity:2,minPlayers:2},
   {id:"t023",type:"truth",text:"What makes someone instantly more attractive to you?",category:"dating",intensity:3,minPlayers:2},
-  {id:"t024",type:"truth",text:"What's the strongest drug you habe ever tried?",category:"group",intensity:4,minPlayers:2},
+  {id:"t024",type:"truth",text:"What's the strongest drug you have ever tried?",category:"group",intensity:4,minPlayers:2},
 
   {id:"t025",type:"truth",text:"Have you ever caught feelings for someone you should not have?",category:"adult",intensity:4,minPlayers:2},
   {id:"t026",type:"truth",text:"What is your biggest nonphysical turn-on?",category:"adult",intensity:4,minPlayers:2},
@@ -56,6 +56,13 @@ window.PROMPTS = [
   {id:"t047",type:"truth",text:"What is the boldest invitation you would genuinely say yes to tonight?",category:"adult",intensity:6,minPlayers:2},
   {id:"t048",type:"truth",text:"What kind of connection could tempt you to change your whole life?",category:"revealing",intensity:6,minPlayers:2},
 
+  {id:"t049",type:"truth",text:"Who here would you not want to be stranded on an island with?",category:"group",intensity:2,minPlayers:2},
+  {id:"t050",type:"truth",text:"Who here would you want to be stranded on a deserted island with?",category:"group",intensity:2,minPlayers:2},
+  {id:"t051",type:"truth",text:"Who here would survive longest on a deserted island?",category:"group",intensity:1,minPlayers:2},
+  {id:"t053",type:"truth",text:"?",category:"group",intensity:1,minPlayers:2},
+  {id:"t054",type:"truth",text:"?",category:"group",intensity:1,minPlayers:2},
+  {id:"t055",type:"truth",text:"?",category:"group",intensity:1,minPlayers:2},
+
   {id:"d001",type:"dare",text:"Do your best victory dance for ten seconds.",category:"performance",intensity:1,minPlayers:2},
   {id:"d002",type:"dare",text:"Hum a song until someone guesses it.",category:"performance",intensity:1,minPlayers:2},
   {id:"d003",type:"dare",text:"Make your best animal sound.",category:"funny",intensity:1,minPlayers:2},
@@ -65,7 +72,7 @@ window.PROMPTS = [
   {id:"d007",type:"dare",text:"Try to make the group laugh without speaking.",category:"funny",intensity:1,minPlayers:3},
   {id:"d008",type:"dare",text:"Invent a dance move and give it a ridiculous name.",category:"silly",intensity:1,minPlayers:2},
 
-  {id:"d009",type:"dare",text:"Let the group give you a harmless nickname for two rounds.",category:"social",intensity:2,minPlayers:3},
+  {id:"d009",type:"dare",text:"Let another player choose an old social media post from one of your followers that you have to like and comment on.",category:"social",intensity:2,minPlayers:3},
   {id:"d010",type:"dare",text:"Show the last meme you saved, if you are comfortable.",category:"personal",intensity:2,minPlayers:2},
   {id:"d011",type:"dare",text:"Imitate someone in the room until they guess who.",category:"group",intensity:2,minPlayers:3},
   {id:"d012",type:"dare",text:"Perform the chorus of a song chosen by the group.",category:"performance",intensity:2,minPlayers:3},
