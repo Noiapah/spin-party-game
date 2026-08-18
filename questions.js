@@ -75,8 +75,14 @@ window.PROMPTS = [
   {id:"t061",type:"truth",text:"Whats the longest you've kept a crush secret?",category:"group",intensity:2,minPlayers:2},
   {id:"t062",type:"truth",text:"Who in the room would be the hardest person to date?",category:"group",intensity:3,minPlayers:3},
   {id:"t063",type:"truth",text:"Who's the first person you¨d call if you¨d gotten arrested?",category:"group",intensity:1,minPlayers:2},
-  {id:"t064",type:"truth",text:"?",category:"group",intensity:1,minPlayers:2},
-  {id:"t065",type:"truth",text:"?",category:"group",intensity:1,minPlayers:2},
+  {id:"t064",type:"truth",text:"When were the last time you were jealous?",category:"group",intensity:2,minPlayers:2},
+  {id:"t065",type:"truth",text:"Whats the coolest thing you own?",category:"group",intensity:1,minPlayers:2},
+
+  {id:"t066",type:"truth",text:"Whats something that would immediately stop sex?",category:"group",intensity:1,minPlayers:2},
+  {id:"t067",type:"truth",text:"Do you currently have a crush on someone?",category:"group",intensity:2,minPlayers:2},
+  {id:"t068",type:"truth",text:"Whats the most risky photo you have ever sent?",category:"group",intensity:3,minPlayers:2},
+  {id:"t069",type:"truth",text:"Whats the boldest thing you've ever asked someone to do in private?",category:"group",intensity:4,minPlayers:2},
+  {id:"t070",type:"truth",text:"If you could get with one person from your past one more time, who would it be?",category:"group",intensity:4,minPlayers:2},
 
   {id:"d001",type:"dare",text:"Do your best victory dance for ten seconds.",category:"performance",intensity:1,minPlayers:2},
   {id:"d002",type:"dare",text:"Hum a song until someone guesses it.",category:"performance",intensity:1,minPlayers:2},
