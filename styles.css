@@ -102,6 +102,14 @@ input[type="range"] {
   accent-color: var(--sage);
 }
 
+.range-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -13px;
+  color: #929691;
+  font-size: .67rem;
+}
+
 .stepper {
   display: grid;
   grid-template-columns: 52px 1fr 52px;

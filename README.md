@@ -21,6 +21,8 @@ Then open `http://localhost:8080`.
 
 No build command or framework is required.
 
+Game length uses five setup presets: Brief (15 minutes), Short (30), Medium (45), Long (60), and Marathon (120).
+
 ## How prompt selection works
 
 Every prompt in `questions.js` has a unique ID, type, category, minimum player count, and text. Truths and dares additionally have an intensity from 1–6; wildcards do not use intensity. Used IDs are held in memory for the current game, so a prompt cannot repeat. Every Truth or Dare selection has a 5% chance to become an eligible wildcard instead. Every tenth displayed card overrides the normal draw with an “Everyone drinks” milestone card.

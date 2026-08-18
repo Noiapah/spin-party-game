@@ -19,8 +19,9 @@
         <p class="intro">Pass the phone around the circle. Spin, pick truth or dare, and answer—or take your agreed-upon skip.</p>
 
         <form id="setup-form" class="setup-card">
-          <label for="duration">Game length <output id="duration-output" for="duration">45 min</output></label>
-          <input id="duration" name="duration" type="range" min="15" max="120" step="5" value="45" />
+          <label for="duration">Game length <output id="duration-output" for="duration">Medium</output></label>
+          <input id="duration" name="duration" type="range" min="1" max="5" step="1" value="3" aria-valuetext="Medium" />
+          <div class="range-ends" aria-hidden="true"><span>Brief</span><span>Marathon</span></div>
 
           <label for="players">Number of players</label>
           <div class="stepper">

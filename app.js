@@ -29,6 +29,14 @@
     timerId: null
   };
 
+  const durationPresets = {
+    1: { label: "Brief", minutes: 15 },
+    2: { label: "Short", minutes: 30 },
+    3: { label: "Medium", minutes: 45 },
+    4: { label: "Long", minutes: 60 },
+    5: { label: "Marathon", minutes: 120 }
+  };
+
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
   function setPlayers(value) {
@@ -36,7 +44,9 @@
   }
 
   durationInput.addEventListener("input", () => {
-    durationOutput.value = `${durationInput.value} min`;
+    const preset = durationPresets[durationInput.value];
+    durationOutput.value = preset.label;
+    durationInput.setAttribute("aria-valuetext", preset.label);
   });
   $("#players-down").addEventListener("click", () => setPlayers(Number(playersInput.value) - 1));
   $("#players-up").addEventListener("click", () => setPlayers(Number(playersInput.value) + 1));
@@ -45,7 +55,7 @@
   setupForm.addEventListener("submit", (event) => {
     event.preventDefault();
     state.players = clamp(Number(playersInput.value), 2, 20);
-    state.durationMinutes = Number(durationInput.value);
+    state.durationMinutes = durationPresets[durationInput.value].minutes;
     state.startedAt = Date.now();
     state.extraTimeMs = 0;
     state.usedIds.clear();
