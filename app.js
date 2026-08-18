@@ -43,10 +43,22 @@
     playersInput.value = clamp(Number(value) || 2, 2, 20);
   }
 
-  durationInput.addEventListener("input", () => {
-    const preset = durationPresets[durationInput.value];
+  function setDuration(value) {
+    durationInput.value = value;
+    const preset = durationPresets[value];
     durationOutput.value = preset.label;
     durationInput.setAttribute("aria-valuetext", preset.label);
+    document.querySelectorAll("[data-duration]").forEach((button) => {
+      const active = button.dataset.duration === String(value);
+      button.classList.toggle("active", active);
+      if (active) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
+  }
+
+  durationInput.addEventListener("input", () => setDuration(durationInput.value));
+  document.querySelectorAll("[data-duration]").forEach((button) => {
+    button.addEventListener("click", () => setDuration(button.dataset.duration));
   });
   $("#players-down").addEventListener("click", () => setPlayers(Number(playersInput.value) - 1));
   $("#players-up").addEventListener("click", () => setPlayers(Number(playersInput.value) + 1));

@@ -102,12 +102,26 @@ input[type="range"] {
   accent-color: var(--sage);
 }
 
-.range-ends {
-  display: flex;
-  justify-content: space-between;
-  margin-top: -13px;
+.duration-scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  margin-top: -11px;
+}
+
+.duration-scale button {
+  min-width: 0;
+  padding: 4px 1px;
+  border: 0;
   color: #929691;
-  font-size: .67rem;
+  background: transparent;
+  font-size: clamp(.56rem, 2.5vw, .68rem);
+  cursor: pointer;
+}
+
+.duration-scale button.active {
+  color: var(--sage-dark);
+  font-weight: 750;
 }
 
 .stepper {

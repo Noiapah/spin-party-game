@@ -21,7 +21,13 @@
         <form id="setup-form" class="setup-card">
           <label for="duration">Game length <output id="duration-output" for="duration">Medium</output></label>
           <input id="duration" name="duration" type="range" min="1" max="5" step="1" value="3" aria-valuetext="Medium" />
-          <div class="range-ends" aria-hidden="true"><span>Brief</span><span>Marathon</span></div>
+          <div class="duration-scale" aria-label="Game length options">
+            <button type="button" data-duration="1">Brief</button>
+            <button type="button" data-duration="2">Short</button>
+            <button type="button" data-duration="3" class="active" aria-current="true">Medium</button>
+            <button type="button" data-duration="4">Long</button>
+            <button type="button" data-duration="5">Marathon</button>
+          </div>
 
           <label for="players">Number of players</label>
           <div class="stepper">
