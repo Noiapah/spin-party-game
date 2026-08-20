@@ -197,12 +197,17 @@
     }
     promptCard.classList.toggle("wildcard-card", prompt?.type === "wildcard");
     promptCard.classList.toggle("everyone-drinks-card", prompt?.type === "everyone drinks");
+    promptCard.classList.remove("card-exit");
     $("#spin-stage").hidden = true;
     promptCard.hidden = false;
+    // Restart the entrance animation even when the same card element is reused.
+    void promptCard.offsetWidth;
+    promptCard.classList.add("card-enter");
     $("#next-round").focus();
   }
 
   function resetRound() {
+    promptCard.classList.remove("card-enter", "card-exit");
     promptCard.hidden = true;
     $("#spin-stage").hidden = false;
     choicePanel.hidden = true;
@@ -212,7 +217,27 @@
     bottleButton.focus();
   }
 
-  $("#next-round").addEventListener("click", resetRound);
+  function exitPrompt() {
+    if (promptCard.classList.contains("card-exit")) return;
+
+    const nextRoundButton = $("#next-round");
+    nextRoundButton.disabled = true;
+    promptCard.classList.remove("card-enter");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      nextRoundButton.disabled = false;
+      resetRound();
+      return;
+    }
+
+    promptCard.classList.add("card-exit");
+    promptCard.addEventListener("animationend", () => {
+      nextRoundButton.disabled = false;
+      resetRound();
+    }, { once: true });
+  }
+
+  $("#next-round").addEventListener("click", exitPrompt);
 
   function updateTimer() {
     const durationMs = state.durationMinutes * 60_000 + state.extraTimeMs;
