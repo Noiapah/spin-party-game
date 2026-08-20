@@ -74,7 +74,7 @@ window.PROMPTS = [
   
   {id:"t061",type:"truth",text:"Whats the longest you've kept a crush secret?",category:"group",intensity:2,minPlayers:2},
   {id:"t062",type:"truth",text:"Who in the room would be the hardest person to date?",category:"group",intensity:3,minPlayers:3},
-  {id:"t063",type:"truth",text:"Who's the first person you¨d call if you¨d gotten arrested?",category:"group",intensity:1,minPlayers:2},
+  {id:"t063",type:"truth",text:"Who's the first person you'd call if you'd gotten arrested?",category:"group",intensity:1,minPlayers:2},
   {id:"t064",type:"truth",text:"When were the last time you were jealous?",category:"group",intensity:2,minPlayers:2},
   {id:"t065",type:"truth",text:"Whats the coolest thing you own?",category:"group",intensity:1,minPlayers:2},
 

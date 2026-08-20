@@ -1,7 +1,10 @@
 (() => {
   "use strict";
 
+  // Small helper for selecting the first element that matches a CSS selector.
   const $ = (selector) => document.querySelector(selector);
+
+  // Cache frequently used page elements so they do not need to be queried again.
   const setupScreen = $("#setup-screen");
   const gameScreen = $("#game-screen");
   const setupForm = $("#setup-form");
@@ -17,6 +20,7 @@
   const promptCountEl = $("#prompt-count");
   const endDialog = $("#end-dialog");
 
+  // All values that change while a game is running live in this object.
   const state = {
     players: 2,
     durationMinutes: 45,
@@ -29,6 +33,7 @@
     timerId: null
   };
 
+  // Maps the setup slider positions to their labels and game lengths.
   const durationPresets = {
     1: { label: "Brief", minutes: 15 },
     2: { label: "Short", minutes: 30 },
@@ -37,12 +42,15 @@
     5: { label: "Marathon", minutes: 120 }
   };
 
+  // Keeps a number inside the supplied minimum and maximum boundaries.
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
+  // Validates and displays the selected number of players.
   function setPlayers(value) {
     playersInput.value = clamp(Number(value) || 2, 2, 20);
   }
 
+  // Updates the duration slider, visible label, and active preset button.
   function setDuration(value) {
     durationInput.value = value;
     const preset = durationPresets[value];
@@ -56,6 +64,7 @@
     });
   }
 
+  // Keep the duration controls synchronized when either one is changed.
   durationInput.addEventListener("input", () => setDuration(durationInput.value));
   document.querySelectorAll("[data-duration]").forEach((button) => {
     button.addEventListener("click", () => setDuration(button.dataset.duration));
@@ -64,6 +73,7 @@
   $("#players-up").addEventListener("click", () => setPlayers(Number(playersInput.value) + 1));
   playersInput.addEventListener("change", () => setPlayers(playersInput.value));
 
+  // Starts a fresh game using the values selected on the setup screen.
   setupForm.addEventListener("submit", (event) => {
     event.preventDefault();
     state.players = clamp(Number(playersInput.value), 2, 20);
@@ -79,18 +89,23 @@
     state.timerId = window.setInterval(updateTimer, 1000);
   });
 
+  // Returns game progress as a number from 0 (start) to 1 (finished).
   function elapsedRatio() {
     const durationMs = state.durationMinutes * 60_000 + state.extraTimeMs;
     return clamp((Date.now() - state.startedAt) / durationMs, 0, 1);
   }
 
-  // The target moves continuously between the six integer content bands.
+  // Calculates the desired question intensity (1-6) from game progress.
+  // Smoothstep makes the increase gradual instead of changing in hard jumps.
   function targetIntensity() {
     const t = elapsedRatio();
     const smooth = t * t * (3 - 2 * t);
     return 1 + 5 * smooth;
   }
 
+  // Selects one eligible, unused prompt of the requested type.
+  // Truth and dare weights favor the current intensity, while all prompt types
+  // discourage recently used categories to keep consecutive cards varied.
   function weightedPrompt(type) {
     const eligible = window.PROMPTS.filter((prompt) =>
       prompt.type === type &&
@@ -102,6 +117,7 @@
 
     let weighted;
     if (type === "wildcard") {
+      // Wildcards have no intensity, so only category variety affects weight.
       weighted = eligible.map((prompt) => ({
         prompt,
         weight: state.recentCategories.includes(prompt.category) ? 0.58 : 1
@@ -109,6 +125,7 @@
     } else {
       const progress = elapsedRatio();
       const target = targetIntensity();
+      // A smaller spread more strongly favors cards near the target intensity.
       const spread = 0.72;
       weighted = eligible.map((prompt) => {
         const variety = state.recentCategories.includes(prompt.category) ? 0.58 : 1;
@@ -124,6 +141,7 @@
       });
     }
 
+    // Perform a weighted random draw from the eligible prompt list.
     const total = weighted.reduce((sum, item) => sum + item.weight, 0);
     let roll = Math.random() * total;
     for (const item of weighted) {
@@ -133,6 +151,7 @@
     return weighted.at(-1).prompt;
   }
 
+  // Builds the special milestone prompt shown for every tenth card.
   function everyoneDrinksPrompt(cardNumber) {
     return {
       id: `m${String(cardNumber).padStart(3, "0")}`,
@@ -143,6 +162,7 @@
     };
   }
 
+  // Spins the bottle, then reveals the Truth and Dare choice buttons.
   bottleButton.addEventListener("click", () => {
     if (state.spinning) return;
     state.spinning = true;
@@ -151,6 +171,7 @@
     spinInstruction.hidden = false;
     spinInstruction.textContent = "Spinning…";
 
+    // Add full turns plus a random final angle while preserving prior rotation.
     const turns = 4 + Math.floor(Math.random() * 4);
     const direction = Math.random() * 360;
     state.rotation += turns * 360 + direction;
@@ -168,20 +189,29 @@
     }, 2800);
   });
 
+  // Request the prompt type represented by the clicked choice button.
   document.querySelectorAll(".choice").forEach((button) => {
     button.addEventListener("click", () => showPrompt(button.dataset.type));
   });
 
+  // Chooses a prompt, fills the card, and starts its entrance animation.
   function showPrompt(type) {
     const cardNumber = state.usedIds.size + 1;
     const isEveryoneDrinksCard = cardNumber % 10 === 0;
-    const wildcardTriggered = !isEveryoneDrinksCard && Math.random() < 0.05;
+
+    // Math.random() returns 0-1, so 0.7 gives non-milestone cards a 70% chance
+    // to become wildcards. Change 0.7 to 0.05 for a 5% chance, for example.
+    const wildcardTriggered = !isEveryoneDrinksCard && Math.random() < 0.7;
+
+    // Milestone cards take priority. If no wildcard is eligible, fall back to
+    // the Truth or Dare type that the player originally selected.
     const prompt = isEveryoneDrinksCard
       ? everyoneDrinksPrompt(cardNumber)
       : wildcardTriggered
         ? (weightedPrompt("wildcard") || weightedPrompt(type))
         : weightedPrompt(type);
     if (!prompt) {
+      // Explain when every eligible prompt of this type has already been used.
       $("#prompt-type").textContent = "All done";
       $("#prompt-category").textContent = type;
       $("#prompt-id").textContent = "debug: none";
@@ -195,6 +225,7 @@
       $("#prompt-text").textContent = prompt.text;
       promptCountEl.textContent = `${state.usedIds.size} asked`;
     }
+    // These type classes choose the card colors and animation direction in CSS.
     promptCard.classList.toggle("wildcard-card", prompt?.type === "wildcard");
     promptCard.classList.toggle("everyone-drinks-card", prompt?.type === "everyone drinks");
     promptCard.classList.remove("card-exit");
@@ -206,6 +237,7 @@
     $("#next-round").focus();
   }
 
+  // Restores the bottle screen and controls for the beginning of another round.
   function resetRound() {
     promptCard.classList.remove("card-enter", "card-exit");
     promptCard.hidden = true;
@@ -217,6 +249,7 @@
     bottleButton.focus();
   }
 
+  // Plays the card's type-specific exit animation before resetting the round.
   function exitPrompt() {
     if (promptCard.classList.contains("card-exit")) return;
 
@@ -224,6 +257,7 @@
     nextRoundButton.disabled = true;
     promptCard.classList.remove("card-enter");
 
+    // Skip movement for people who have reduced motion enabled on their device.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       nextRoundButton.disabled = false;
       resetRound();
@@ -239,6 +273,7 @@
 
   $("#next-round").addEventListener("click", exitPrompt);
 
+  // Recalculates and displays the remaining game time once per second.
   function updateTimer() {
     const durationMs = state.durationMinutes * 60_000 + state.extraTimeMs;
     const remaining = Math.max(0, durationMs - (Date.now() - state.startedAt));
@@ -248,17 +283,22 @@
     if (remaining === 0 && !endDialog.open) showEndDialog();
   }
 
+  // Opens the end-of-game dialog and reports how many prompts were completed.
   function showEndDialog() {
     $("#end-summary").textContent = `You made it through ${state.usedIds.size} prompt${state.usedIds.size === 1 ? "" : "s"}.`;
     endDialog.showModal();
   }
 
   $("#end-game").addEventListener("click", showEndDialog);
+
+  // Extend the current game by 15 minutes without resetting its progress.
   $("#keep-playing").addEventListener("click", () => {
     state.extraTimeMs += 15 * 60_000;
     endDialog.close();
     updateTimer();
   });
+
+  // Stop the current game and return to the setup screen.
   $("#new-game").addEventListener("click", () => {
     window.clearInterval(state.timerId);
     endDialog.close();

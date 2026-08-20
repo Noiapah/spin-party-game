@@ -346,6 +346,7 @@ input[type="range"] {
   will-change: transform, opacity;
 }
 
+/* Standard prompt cards enter from the left and leave through the right. */
 .prompt-card.card-enter {
   animation: card-enter-horizontal .48s cubic-bezier(.22, .82, .32, 1) both;
 }
@@ -363,6 +364,7 @@ input[type="range"] {
 .prompt-card.wildcard-card .prompt-meta { color: #7b6b42; }
 .prompt-card.wildcard-card #prompt-text::before { content: "WILD  "; color: #8c7b4e; font-size: .65em; letter-spacing: .08em; }
 
+/* Wildcards override the standard animation with vertical movement. */
 .prompt-card.wildcard-card.card-enter { animation-name: card-enter-wildcard; }
 .prompt-card.wildcard-card.card-exit { animation-name: card-exit-wildcard; }
 
@@ -471,6 +473,7 @@ dialog h2 { font-family: Georgia, "Times New Roman", serif; font-size: 2.1rem; f
     animation-duration: .01ms !important;
   }
 
+  /* JavaScript also skips waiting for an animation when this setting is on. */
   .prompt-card.card-enter,
   .prompt-card.card-exit {
     animation: none;
