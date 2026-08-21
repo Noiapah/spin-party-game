@@ -106,7 +106,7 @@ window.PROMPTS = [
   {id:"d012",type:"dare",text:"Perform the chorus of a song chosen by the group.",category:"performance",intensity:2,minPlayers:3},
   {id:"d013",type:"dare",text:"Tell two truths and a lie; let the group find the lie.",category:"social",intensity:2,minPlayers:3},
   {id:"d014",type:"dare",text:"Let another player choose a pose you must hold for ten seconds.",category:"silly",intensity:2,minPlayers:3},
-  {id:"d015",type:"dare",text:"Read your recent emoji sequence like a serious poem.",category:"personal",intensity:2,minPlayers:2},
+  {id:"d015",type:"dare",text:"Show your last used emojies.",category:"personal",intensity:2,minPlayers:2},
   {id:"d016",type:"dare",text:"Give everyone a one-word award.",category:"group",intensity:2,minPlayers:4},
 
   {id:"d017",type:"dare",text:"Deliver your best cheesy pickup line to the person opposite you.",category:"flirty",intensity:3,minPlayers:3},
