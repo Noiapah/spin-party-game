@@ -107,7 +107,7 @@ window.PROMPTS = [
   {id:"d013",type:"dare",text:"Tell two truths and a lie; let the group find the lie.",category:"social",intensity:2,minPlayers:3},
   {id:"d014",type:"dare",text:"Let another player choose a pose you must hold for ten seconds.",category:"silly",intensity:2,minPlayers:3},
   {id:"d015",type:"dare",text:"Show your last used emojies.",category:"personal",intensity:2,minPlayers:2},
-  {id:"d016",type:"dare",text:"Give everyone a one-word award.",category:"group",intensity:2,minPlayers:4},
+  {id:"d016",type:"dare",text:"Pay everyone in the room a compliment.",category:"group",intensity:2,minPlayers:4},
 
   {id:"d017",type:"dare",text:"Deliver your best cheesy pickup line to the person opposite you.",category:"flirty",intensity:3,minPlayers:3},
   {id:"d018",type:"dare",text:"Hold eye contact with a willing player for fifteen seconds.",category:"flirty",intensity:3,minPlayers:3},
@@ -140,9 +140,9 @@ window.PROMPTS = [
   {id:"d042",type:"dare",text:"Let the group invent the plot of your scandalous fictional autobiography.",category:"group",intensity:6,minPlayers:4},
   {id:"d043",type:"dare",text:"Ask a consenting player one provocative question they may freely decline.",category:"adult",intensity:6,minPlayers:3},
   {id:"d044",type:"dare",text:"Perform a dramatic forbidden-romance scene with a willing player or an object.",category:"performance",intensity:6,minPlayers:2},
-  {id:"d045",type:"dare",text:"Let the group choose your fictional celebrity power-couple partner.",category:"chaos",intensity:6,minPlayers:4},
+  {id:"d045",type:"dare",text:"Kiss the person to your left on the lips.",category:"chaos",intensity:6,minPlayers:4},
   {id:"d046",type:"dare",text:"Give a consenting player a compliment bold enough to make them blush.",category:"flirty",intensity:6,minPlayers:3},
-  {id:"d047",type:"dare",text:"Describe your wildest dream date without naming a place or person.",category:"adult",intensity:6,minPlayers:2},
+  {id:"d047",type:"dare",text:"Describe your last wet dream.",category:"adult",intensity:6,minPlayers:2},
   {id:"d048",type:"dare",text:"Let the room design your chaotic alter ego, including name and dating style.",category:"group",intensity:6,minPlayers:4},
 
   {id:"w001",type:"wildcard",text:"You can skip one truth or dare, or pass it on to another player at any time",category:"power",minPlayers:2},
