@@ -201,7 +201,7 @@
 
     // Math.random() returns 0-1, so 0.7 gives non-milestone cards a 70% chance
     // to become wildcards. Change 0.7 to 0.05 for a 5% chance, for example.
-    const wildcardTriggered = !isEveryoneDrinksCard && Math.random() < 0.7;
+    const wildcardTriggered = !isEveryoneDrinksCard && Math.random() < 0.1;
 
     // Milestone cards take priority. If no wildcard is eligible, fall back to
     // the Truth or Dare type that the player originally selected.

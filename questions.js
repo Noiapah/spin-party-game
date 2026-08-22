@@ -53,7 +53,7 @@ window.PROMPTS = [
   {id:"t044",type:"truth",text:"Have you ever risked a friendship by admitting your feelings?",category:"confession",intensity:6,minPlayers:2},
   {id:"t045",type:"truth",text:"Have you ever shot your shot and missed? Tell the story",category:"chaos",intensity:3,minPlayers:2},
   {id:"t046",type:"truth",text:"Who here could most easily convince you to make a bad decision?",category:"group",intensity:6,minPlayers:3},
-  {id:"t047",type:"truth",text:"What is the boldest invitation you would genuinely say yes to tonight?",category:"adult",intensity:6,minPlayers:2},
+  {id:"t047",type:"truth",text:"Go home with, bring home to meet the parents and send home?",category:"adult",intensity:3,minPlayers:4},
   {id:"t048",type:"truth",text:"What kind of connection could tempt you to change your whole life?",category:"revealing",intensity:6,minPlayers:2},
 
   {id:"t049",type:"truth",text:"Who here would you not want to be stranded on an island with?",category:"group",intensity:2,minPlayers:2},
@@ -156,7 +156,7 @@ window.PROMPTS = [
   {id:"w008",type:"wildcard",text:".",category:"group",minPlayers:4},
 
   {id:"w009",type:"wildcard",text:"One for you: Assign one sip/skip to any player.",category:"power",minPlayers:3},
-  {id:"w010",type:"wildcard",text:".",category:"rule",minPlayers:4},
+  {id:"w010",type:"wildcard",text:"Start a conga line, last person to join the line drinks.",category:"rule",minPlayers:8},
   {id:"w011",type:"wildcard",text:".",category:"power",minPlayers:3},
   {id:"w012",type:"wildcard",text:".",category:"group",minPlayers:4},
 
