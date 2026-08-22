@@ -137,11 +137,11 @@ window.PROMPTS = [
   {id:"d040",type:"dare",text:"Let another player ask one bold question; answer or take your sip/skip.",category:"confession",intensity:5,minPlayers:3},
 
   {id:"d041",type:"dare",text:"Pitch yourself as the lead in an outrageous adult romance movie.",category:"chaos",intensity:6,minPlayers:2},
-  {id:"d042",type:"dare",text:"Let the group invent the plot of your scandalous fictional autobiography.",category:"group",intensity:6,minPlayers:4},
+  {id:"d042",type:"dare",text:".",category:"group",intensity:6,minPlayers:4},
   {id:"d043",type:"dare",text:"Ask a consenting player one provocative question they may freely decline.",category:"adult",intensity:6,minPlayers:3},
-  {id:"d044",type:"dare",text:"Perform a dramatic forbidden-romance scene with a willing player or an object.",category:"performance",intensity:6,minPlayers:2},
+  {id:"d044",type:"dare",text:".",category:"performance",intensity:6,minPlayers:2},
   {id:"d045",type:"dare",text:"Kiss the person to your left on the lips .",category:"chaos",intensity:6,minPlayers:4},
-  {id:"d046",type:"dare",text:"Give a consenting player a compliment bold enough to make them blush.",category:"flirty",intensity:6,minPlayers:3},
+  {id:"d046",type:"dare",text:".",category:"flirty",intensity:6,minPlayers:3},
   {id:"d047",type:"dare",text:"Describe your last wet dream.",category:"adult",intensity:6,minPlayers:2},
   {id:"d048",type:"dare",text:"Moon another player.",category:"group",intensity:6,minPlayers:4},
 
@@ -160,17 +160,17 @@ window.PROMPTS = [
   {id:"w011",type:"wildcard",text:".",category:"power",minPlayers:3},
   {id:"w012",type:"wildcard",text:".",category:"group",minPlayers:4},
 
-  {id:"w013",type:"wildcard",text:"Double shield: Protect yourself and one other player from one sip/skip each.",category:"power",minPlayers:3},
-  {id:"w014",type:"wildcard",text:"New rule: Two players must call each other Your Majesty for one round.",category:"rule",minPlayers:4},
-  {id:"w015",type:"wildcard",text:"Split decision: Give one sip/skip each to two different players.",category:"power",minPlayers:4},
-  {id:"w016",type:"wildcard",text:"Hot seat: Ask a willing player one bold truth. They may answer or take one sip/skip.",category:"group",minPlayers:3},
+  {id:"w013",type:"wildcard",text:"Hand out as many sips as there are people in the room.",category:"power",minPlayers:3},
+  {id:"w014",type:"wildcard",text:".",category:"rule",minPlayers:4},
+  {id:"w015",type:"wildcard",text:".",category:"power",minPlayers:4},
+  {id:"w016",type:"wildcard",text:"Select two players to play back-to-back.",category:"group",minPlayers:3},
 
-  {id:"w017",type:"wildcard",text:"Dare dealer: Choose someone who must pick Dare next turn or use their sip/skip.",category:"power",minPlayers:3},
+  {id:"w017",type:"wildcard",text:"Choose someone who must pick Dare next turn or use their sip.",category:"power",minPlayers:3},
   {id:"w018",type:"wildcard",text:"New rule: Two chosen players must mirror each other for one round.",category:"rule",minPlayers:4},
-  {id:"w019",type:"wildcard",text:"Chaos gift: Hand out two total sips/skips however you like.",category:"power",minPlayers:4},
-  {id:"w020",type:"wildcard",text:"Council vote: Nominate the boldest player. They invent a respectful rule for one round.",category:"group",minPlayers:4},
+  {id:"w019",type:"wildcard",text:"Finish your drink.",category:"power",minPlayers:1},
+  {id:"w020",type:"wildcard",text:".",category:"group",minPlayers:4},
 
-  {id:"w021",type:"wildcard",text:"Royal decree: Create one respectful rule for everyone until your next turn.",category:"rule",minPlayers:4},
+  {id:"w021",type:"wildcard",text:".",category:"rule",minPlayers:4},
   {id:"w022",type:"wildcard",text:"Wild authority: Hand out three total sips/skips, at most one per player.",category:"power",minPlayers:4},
   {id:"w023",type:"wildcard",text:"Finale alliance: Pick two players to jointly choose the next person and prompt type.",category:"power",minPlayers:4},
   {id:"w024",type:"wildcard",text:"Chaos court: The group asks you one provocative question. Answer or assign two total sips/skips.",category:"group",minPlayers:4}
