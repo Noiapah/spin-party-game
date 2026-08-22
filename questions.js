@@ -84,11 +84,11 @@ window.PROMPTS = [
   {id:"t069",type:"truth",text:"Whats the boldest thing you've ever asked someone to do in private?",category:"group",intensity:4,minPlayers:2},
   {id:"t070",type:"truth",text:"If you could get with one person from your past one more time, who would it be?",category:"group",intensity:4,minPlayers:2},
 
-  {id:"t071",type:"truth",text:"Have you ever had anything up the backdoor during sex?",category:"group",intensity:4,minPlayers:2},
+  {id:"t071",type:"truth",text:"How would you approach someone to pick them up?",category:"group",intensity:3,minPlayers:2},
   {id:"t072",type:"truth",text:"Have you ever been attracted to two friends at the same time?",category:"group",intensity:3,minPlayers:2},
-  {id:"t073",type:"truth",text:"placeholder1?",category:"group",intensity:4,minPlayers:2},
-  {id:"t074",type:"truth",text:"placeholder2?",category:"group",intensity:4,minPlayers:2},
-  {id:"t075",type:"truth",text:"placeholder3?",category:"group",intensity:4,minPlayers:2},
+  {id:"t073",type:"truth",text:"",category:"group",intensity:4,minPlayers:2},
+  {id:"t074",type:"truth",text:"",category:"group",intensity:4,minPlayers:2},
+  {id:"t075",type:"truth",text:"",category:"group",intensity:4,minPlayers:2},
 
 
   {id:"d001",type:"dare",text:"Do your best victory dance for ten seconds.",category:"performance",intensity:1,minPlayers:2},
@@ -129,7 +129,7 @@ window.PROMPTS = [
 
   {id:"d033",type:"dare",text:"Let the group direct your boldest dating-profile photo pose.",category:"chaos",intensity:5,minPlayers:4},
   {id:"d034",type:"dare",text:"Give a consenting player your most shameless pickup line.",category:"flirty",intensity:5,minPlayers:3},
-  {id:"d035",type:"dare",text:"Twerk for 20seconds.",category:"performance",intensity:5,minPlayers:2},
+  {id:"d035",type:"dare",text:"Twerk (to the best of your abilities) for 15seconds.",category:"performance",intensity:5,minPlayers:2},
   {id:"d036",type:"dare",text:"Let the group choose someone for you to dramatically propose to.",category:"group",intensity:5,minPlayers:4},
   {id:"d037",type:"dare",text:"Describe your dream romantic night like a luxury advertisement.",category:"adult",intensity:5,minPlayers:2},
   {id:"d038",type:"dare",text:"Give a consenting player a playful nickname for the rest of the game.",category:"flirty",intensity:5,minPlayers:3},
